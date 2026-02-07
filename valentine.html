@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>  body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: pink;
+            font-family: Arial, sans-serif;
+        }
+        .demo{
+            height: 250px;
+            width: 500px;
+            color: red;
+            text-align: center;
+
+            padding: 70px 20px 20px 20px;
+
+             border: 20px dotted rgb(241, 119, 4);
+           
+        }
+        .btn1{
+            border-radius: 30px;
+           
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            color: rgb(252, 7, 7);
+            background-color:black ;
+           
+        }
+        #nobtn{
+            border-radius: 30px;
+          
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            color: rgb(252, 7, 7);
+            background-color:black ;}
+         .wi{
+                color: rgb(251, 156, 4);
+            }
+            .MARRY{
+                color: violet;
+            }
+        </style>
+      <div class="demo">
+          <h1>Happy Valentine's Day!</h1>
+          <h2 class="wi">🥰AMEERA🥰</h2>
+         
+         <h2>WILL YOU <SPAN class="MARRY">MARRY</SPAN> ME?</h2>
+         <div></div>
+         <a href="./bg.html"> <button class="btn1">Yes!</button></a>
+        
+        <button id="nobtn" onmouseover="moveNo()">No!</button>
+    </div>
+
+      </div>
+      <script>
+        function moveNo() {
+            const noButton = document.getElementById("nobtn");
+            const demo = document.querySelector(".demo");
+            const demoRect = demo.getBoundingClientRect();
+            const noRect = noButton.getBoundingClientRect();
+
+            const maxX = demoRect.width - noRect.width;
+            const maxY = demoRect.height - noRect.height;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.position = "absolute";
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+
+            const msg = document.createElement("div");
+            msg.textContent = "Please say yes!";
+            
+            msg.style.position = "absolute";
+            msg.style.left = (randomX + noRect.width + 10) + "px";
+            msg.style.top = randomY + "px";
+            msg.style.color = "red";
+            msg.style.transformBox = "fill-box";
+            demo.appendChild(msg);
+
+            hideTimeout = setTimeout(() => {
+                msg.remove();
+            }, 500);
+        }
+      </script>
+      
+  
+
+</body>
+</html>
